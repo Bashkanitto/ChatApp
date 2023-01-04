@@ -8,6 +8,11 @@
 
 .logoImg{
   width: 200px;
+
+
+  @include mobile{
+    display: none;
+  }
 }
 
 .formContainer{
@@ -172,6 +177,9 @@
   align-items: center;
   justify-content: center;
 
+
+
+
   .container{
     // border: 1px solid white;
     border-radius: 10px;
@@ -184,6 +192,40 @@
     .sidebar{
       flex: 1;
       background-color: #FDF8F6;
+      transition: 0.5s;
+
+
+
+
+      @include mobile{
+        flex: 0;
+        width: 0%;
+        transition: 0.1s;
+
+
+        &::after{
+          content: "";
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          top: 3.6%;
+          background: url(./img/iconMenu.png) no-repeat ;
+          background-size:  cover;
+          border-radius: 0 10px 10px 0;
+        }
+        
+
+        &:hover{
+          flex: 1;
+          width: 100%;
+
+
+          &::after{
+            display: none;
+          }
+        }
+      }
+
 
 
       .navbar{
@@ -195,10 +237,24 @@
         justify-content: space-between;
         color: black;
         font-size: 24px;
-        font-weight: 500;
+        font-weight: 600;
+        // border-bottom: 1px solid #0176FF;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 
 
-        .logo{font-weight: bold;}
+
+
+        
+
+        .logo{font-weight: bold;
+        
+          @include mobile{
+            display: none;
+          }
+        }
+
+
+
 
 
         .user{
@@ -206,6 +262,11 @@
           gap: 10px;
           align-items: center;
         
+
+          @include mobile{
+            width: 100%;
+            justify-content: space-between;
+          }
 
           img{
             background-color: #ddddf7;
@@ -222,33 +283,52 @@
             font-size: 18px;
             padding: 10px;
             border: none;
+            border-radius: 10px;
             cursor: pointer;
           }
         } 
       }
   
     .search{
-      border-bottom: 1px solid lightblue;
 
+      border-bottom: 1px solid lightblue;
+      
 
       .searchForm{
         padding: 10px;
+        position: relative;
       
         
         input{
           background-color: transparent;
           border: 3px solid #E0DCDA;
-          border-radius: 10px;
-          padding: 10px 0 10px 10px;
+          border-radius: 100px;
+          padding: 10px 0 10px 35px;
           color: darkblue;
-        width: 96%;
-        font-size: 18px;
+          width: 90%;
+          font-size: 18px;
           outline: none;
+          position: relative;
+        
 
 
-        &::placeholder{
-          color: lightgray;
+
+
+          &::placeholder{
+           color: lightgray;
+          }
+
         }
+        &::after{
+          content: "";
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          top: 35%;
+          z-index: 2;
+          left: 5%;
+          background-image: url("./img/searchIcon.png");
+          background-size: cover;
         }
       }
     }
@@ -267,6 +347,7 @@
 
 
     &:hover{background-color: #bddcff;}
+
 
 
       img{
@@ -291,10 +372,11 @@
 // ------------------------------------------------------------------------------
   .chat{
     flex: 2;
+    
 
 
     @include mobile{
-      display: none;      
+      flex: 1;      
     }
   
   
@@ -306,14 +388,12 @@
       justify-content: space-between;
       padding: 10px;
       color:  white;
+
       font-size: 25px;
 
 
-      &:active > .chat{
-        display: flex;
-      }
 
-      img{border-radius: 50%; width:50px; height:50px; object-fit: cover;}
+      img{border-radius: 50%; width:auto;max-width: 50px; height:50px; object-fit: cover;}
     }
 
     
@@ -323,14 +403,15 @@
 
 
       img{
-        height: 24px;
-        width: 24px;
+        height: 30px;
+        width: 30px;
         cursor: pointer;
       }
     }
 
 
     .messages{
+      
       background-color: rgb(193, 224, 255) ;
       padding: 10px;
       height: calc(100% - 160px);
@@ -378,15 +459,20 @@
         }
         &.owner{
           flex-direction: row-reverse;
-    
-    
+          border-radius: 10px 10px 10px 10px;
+          
+          
+
           .messageContent{
             align-items: flex-end; 
-    
-          p{
-            background-color: #8da4f1;
-            color: white;
-            border: 10px 0 10px 10px;
+            border-radius: 10px 10px 10px 10px;
+            
+            p{
+              background-color: #8da4f1;
+              border-radius:10px 0px 10px 10px !important;
+              color: white;
+            max-width: max-content;
+
           }
         }
         }

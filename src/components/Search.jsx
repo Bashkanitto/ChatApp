@@ -20,6 +20,7 @@ const Search = () => {
   const { currentUser } = useContext(AuthContext);
 
   const handleSearch = async () => {
+    setUsername("")
     const q = query(
       collection(db, "users"),
       where("displayName", "==", username)
@@ -83,7 +84,8 @@ const Search = () => {
           type="text"
           placeholder="Find a user"
           onKeyDown={handleKey}
-          onChange={(e) => setUsername(e.target.value)}
+          // onChange={(e) => setUsername(e.target.value)}
+          onChange={handleSearch}
           value={username}
         />
       </div>
