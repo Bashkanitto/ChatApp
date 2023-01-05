@@ -9,16 +9,16 @@ const Navbar = () => {
 
   return (
     <div className='navbar'>
-      <a href="/">
-      <span className="logo">
-        <img src={logo} alt="" className="logoImg" />
-      </span>
-      </a>
       <div className="user">
         <img src={currentUser.photoURL} alt="" />
         <span>{currentUser.displayName}</span>
-        <button onClick={()=>signOut(auth)}>logout</button>
+        <span className="online">Online</span>
       </div>
+      {/* <a href="/">
+      <span className="logo">
+        <img src={logo} alt="" className="logoImg" />
+      </span>
+      </a> */}
     </div>
   )
 }

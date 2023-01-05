@@ -4,7 +4,9 @@
   }
 }
 
-
+@mixin darkTheme{
+  @content;
+}
 
 .logoImg{
   width: 200px;
@@ -188,6 +190,11 @@
     display: flex; 
     overflow: hidden;
   
+    @include mobile{
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
 
     .sidebar{
       flex: 1;
@@ -261,6 +268,12 @@
           display: flex;
           gap: 10px;
           align-items: center;
+
+          .online{
+            color: greenyellow;
+            font-size: 12px;
+            padding-left: 300px;
+          }
         
 
           @include mobile{
@@ -311,7 +324,11 @@
           position: relative;
         
 
-
+          @include mobile{
+            position: block ;
+            width: 85%;
+            border: 1px solid rgb(193, 224, 255)
+          }
 
 
           &::placeholder{
@@ -329,6 +346,11 @@
           left: 5%;
           background-image: url("./img/searchIcon.png");
           background-size: cover;
+
+
+          @include mobile{
+            position: static;
+          }
         }
       }
     }
@@ -338,15 +360,16 @@
       padding: 10px;
       margin: 10px;
       border-bottom: 1px solid lightgray;
-      border-radius: 10px;
+      // border-radius: 10px;
       display: flex;
       align-items: center;
       gap: 10px;
       color: darkblue;
       cursor: pointer;
+      transition: 0.1s;
 
 
-    &:hover{background-color: #bddcff;}
+    &:hover{background-color: #bddcff; border-right: 5px solid #0176FF; transition: 0.1s;}
 
 
 
@@ -393,13 +416,38 @@
 
 
 
-      img{border-radius: 50%; width:auto;max-width: 50px; height:50px; object-fit: cover;}
+      img{border-radius: 50%; width:auto;max-width: 50px; min-width: 50px; height:50px; object-fit: cover;}
     }
 
     
     .chatIcons{
       display: flex;
       gap: 10px;
+      position: relative;
+
+
+      .nav{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 20px;
+        right: 0;
+
+
+
+        button{
+          padding: 10px 20px;
+          border: none;
+
+
+          &:hover{
+            background-color: lightgray;
+          }
+        }
+      }
+      &.navClose{
+        display: none;
+      }
 
 
       img{
@@ -407,6 +455,24 @@
         width: 30px;
         cursor: pointer;
       }
+
+      .select{
+        // opacity: 0;
+        position: relative;
+        padding-right: 20px;
+        background-color: transparent;
+        border: none;
+        background: url(./img/three.png) no-repeat;
+        cursor: pointer;
+        
+
+        option{
+          width: 100px;
+        }
+      
+        } 
+      
+
     }
 
 
@@ -527,7 +593,7 @@
           border: none;
           padding: 10px 15px;
           color: white;
-          background-color: #8da4f1;
+          background-color: #0176FF;
           cursor: pointer;
         }
       }

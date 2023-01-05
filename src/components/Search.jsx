@@ -84,8 +84,8 @@ const Search = () => {
           type="text"
           placeholder="Find a user"
           onKeyDown={handleKey}
-          // onChange={(e) => setUsername(e.target.value)}
-          onChange={handleSearch}
+          onChange={(e) => setUsername(e.target.value)}
+          // onChange={handleSearch}
           value={username}
         />
       </div>
