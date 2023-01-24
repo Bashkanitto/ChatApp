@@ -82,6 +82,7 @@ const Input = () => {
     setText("");
     setImg(null);
   };
+  // --------------------------------------html/css-------------------------------------------
   return (
     <div className="input">
       <input
@@ -91,17 +92,24 @@ const Input = () => {
         value={text}
       />
       <div className="send">
-        <img src={Attach} alt="" />
+        {/* attach */}
+        <input type="file" id="attach" style={{display:"none"}} />
+        <label htmlFor="attach">
+          <img src={Attach} alt="imgSender" />
+        </label>
+        
+        {/* img */}
         <input
           type="file"
           style={{ display: "none" }}
           id="file"
           onChange={(e) => setImg(e.target.files[0])}
+          accept="image/*"
         />
         <label htmlFor="file">
           <img src={Img} alt="" />
         </label>
-        <button onClick={handleSend}>Send</button>
+        <button className="btnSend" onClick={handleSend}></button>
       </div>
     </div>
   );

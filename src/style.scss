@@ -73,6 +73,15 @@
     transform: scale(1.5);
 
 
+    .err{
+      color: red;
+      width: 200px;
+    }
+    .alarm{
+      color: yellow;
+      width: 200px;
+    }
+
     @include mobile{
       animation: none;
       transform: scale(1);
@@ -172,7 +181,7 @@
 // ------------------------------------------------------------------------------
 
 .home{
-  background-color: #b2b5c2;
+  background-color: #c8cad2;
   height: 100vh;
   display: flex;
   border: none;
@@ -416,7 +425,12 @@
 
 
 
-      img{border-radius: 50%; width:auto;max-width: 50px; min-width: 50px; height:50px; object-fit: cover;}
+      img{border-radius: 50%; ; width:auto;max-width: 50px; min-width: 50px; height:50px; object-fit: cover;
+      
+      
+      }
+
+
     }
 
     
@@ -591,10 +605,28 @@
 
         button{
           border: none;
-          padding: 10px 15px;
+          padding: 20px 20px;
+          border-radius: 50%;
           color: white;
           background-color: #0176FF;
           cursor: pointer;
+          position: relative;
+
+
         }
+        
+        &::after{
+          position: absolute;
+          background-image: url(./img/arrowRight.png);
+          width: 30px;
+          height: 30px;
+          content: ' ';
+          top: 0;
+          left: 0;
+        }
+
+
       }
   }
+
+  

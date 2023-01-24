@@ -6,10 +6,13 @@ import logo from '../img/logo.png'
 import bg from '../img/bg.png'
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
+
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
@@ -19,6 +22,7 @@ const Login = () => {
       navigate("/")
     } catch (err) {
       setErr(true);
+      setLoading(false);
     }
   };
   return (
@@ -32,7 +36,8 @@ const Login = () => {
           <input type="email" placeholder="email" />
           <input type="password" placeholder="password" />
           <button>Sign in</button>
-          {err && <span>Something went wrong</span>}
+          {loading  && <span className="alarm">Updating, wait...</span>}
+          {err && <span className="err">Something went wrong</span>}
         </form>
         <p>You don't have an account? <Link to="/register">Register</Link></p>
       </div>

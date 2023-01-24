@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="user">
         <img src={currentUser.photoURL} alt="" />
         <span>{currentUser.displayName}</span>
-        <span className="online">Online</span>
+        {/* <span className="online">Online</span> */}
       </div>
       {/* <a href="/">
       <span className="logo">
