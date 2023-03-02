@@ -1,7 +1,7 @@
 ![image](https://user-images.githubusercontent.com/86559848/222448758-edaa3d3a-c473-4777-831a-a420e07eab86.png)
 
 
-## Chatify
+## Chatty
 
 This project were build by [https://github.com/Bashkanitto/]
 test chat app-project for sending and getting messages
